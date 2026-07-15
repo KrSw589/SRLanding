@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet data-dc-atomics>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,500&family=Jost:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+html{scroll-behavior:smooth}
+body{margin:0;background:#F7F3EA;font-family:'Jost',sans-serif}
+a{color:#B8893B;text-decoration:none}
+a:hover{color:#8F6A2B}
+input::placeholder,textarea::placeholder{color:#9A9184;font-family:'Jost',sans-serif}
+</style>
+</helmet>
+
+<div data-screen-label="Strona SR Glazurnik" style="background:#F7F3EA;overflow:hidden">
+
+  <!-- nav -->
+  <header style="display:flex;align-items:center;justify-content:space-between;padding:18px 56px;border-bottom:1px solid rgba(24,20,14,.1)">
+    <div style="display:flex;align-items:center;gap:14px">
+      <img src="assets/logo-mark.png" alt="SR Glazurnik" style="width:92px;height:92px;object-fit:contain">
+      <div>
+        <div style="font:700 17px 'Jost',sans-serif;letter-spacing:.22em;color:#16130E">SR GLAZURNIK</div>
+        <div style="font:400 10.5px 'Jost',sans-serif;letter-spacing:.28em;color:#8C8070;text-transform:uppercase">Precyzja w każdym detalu</div>
+      </div>
+    </div>
+    <nav style="display:flex;gap:30px;font:500 13px 'Jost',sans-serif;letter-spacing:.08em;text-transform:uppercase">
+      <a href="#realizacje" style="color:#3A342A">Realizacje</a><a href="#proces" style="color:#3A342A">Proces</a><a href="#opinie" style="color:#3A342A">Opinie</a><a href="#certyfikaty" style="color:#3A342A">Certyfikaty</a><a href="#kontakt" style="color:#3A342A">Kontakt</a>
+    </nav>
+    <a href="tel:609099502" style="display:flex;align-items:center;gap:9px;background:#16130E;color:#F7F3EA;padding:11px 22px;border-radius:3px;font:600 14px 'Jost',sans-serif;letter-spacing:.05em">☎ 609 099 502</a>
+  </header>
+
+  <!-- hero -->
+  <div style="display:grid;grid-template-columns:1.05fr .95fr;gap:56px;padding:72px 56px 64px;align-items:center">
+    <div>
+      <div style="font:500 12px 'Jost',sans-serif;letter-spacing:.3em;text-transform:uppercase;color:#B8893B;margin-bottom:18px">Mistrz glazurnik · Żory i okolice</div>
+      <h1 style="font:600 56px/1.08 'Cormorant Garamond',serif;color:#16130E;margin:0 0 22px">Remont łazienki,<br>który wygląda jak<br><em style="color:#B8893B">z katalogu</em></h1>
+      <p style="font:300 17px/1.65 'Jost',sans-serif;color:#4A4438;margin:0 0 34px;max-width:440px">Kompleksowe remonty łazienek pod klucz — od skucia starych płytek po ostatnią fugę. Gres wielkoformatowy, kamień, mozaika. Terminowo i bez niespodzianek.</p>
+      <div style="display:flex;gap:14px;align-items:center">
+        <a href="#kontakt" style="background:#B8893B;color:#fff;padding:15px 30px;border-radius:3px;font:600 14px 'Jost',sans-serif;letter-spacing:.08em;text-transform:uppercase">Bezpłatna wycena</a>
+        <a href="tel:609099502" style="border:1px solid #16130E;color:#16130E;padding:14px 30px;border-radius:3px;font:600 14px 'Jost',sans-serif;letter-spacing:.08em;text-transform:uppercase">Zadzwoń</a>
+      </div>
+    </div>
+    <div style="position:relative">
+      <div style="aspect-ratio:4/4.6;border-radius:4px;background:linear-gradient(135deg,#D9CFBE 0%,#CBC0AC 38%,#E3DACA 62%,#BFB29B 100%);position:relative;overflow:hidden;box-shadow:0 24px 48px -20px rgba(22,19,14,.35)">
+        <div style="position:absolute;inset:0;background:repeating-linear-gradient(0deg,transparent 0 118px,rgba(255,255,255,.55) 118px 121px),repeating-linear-gradient(90deg,transparent 0 118px,rgba(255,255,255,.55) 118px 121px)"></div>
+        <div style="position:absolute;left:0;right:0;bottom:0;padding:20px 24px;background:linear-gradient(transparent,rgba(22,19,14,.55));color:#F7F3EA;font:400 13px 'Jost',sans-serif;letter-spacing:.06em">Miejsce na zdjęcie Twojej realizacji — łazienka, gres 120×60</div>
+      </div>
+      <div style="position:absolute;top:-22px;right:-22px;width:88px;height:88px;transform:rotate(45deg);background:linear-gradient(135deg,#16130E 50%,#B8893B 50%);border:4px solid #F7F3EA;box-shadow:0 8px 20px rgba(22,19,14,.25)"></div>
+    </div>
+  </div>
+
+  <!-- stats -->
+  <div style="display:grid;grid-template-columns:repeat(3,1fr);background:#16130E;color:#F7F3EA;padding:34px 56px;gap:32px;text-align:center">
+    <div><div style="font:600 42px 'Cormorant Garamond',serif;color:#C9A45C">18</div><div style="font:400 12px 'Jost',sans-serif;letter-spacing:.22em;text-transform:uppercase;color:#B8AE9C">lat doświadczenia</div></div>
+    <div style="border-left:1px solid rgba(201,164,92,.3);border-right:1px solid rgba(201,164,92,.3)"><div style="font:600 42px 'Cormorant Garamond',serif;color:#C9A45C">240+</div><div style="font:400 12px 'Jost',sans-serif;letter-spacing:.22em;text-transform:uppercase;color:#B8AE9C">wyremontowanych łazienek</div></div>
+    <div><div style="font:600 42px 'Cormorant Garamond',serif;color:#C9A45C">100%</div><div style="font:400 12px 'Jost',sans-serif;letter-spacing:.22em;text-transform:uppercase;color:#B8AE9C">realizacji w terminie</div></div>
+  </div>
+
+  <!-- realizacje -->
+  <div id="realizacje" style="padding:64px 56px">
+    <div style="display:flex;align-items:baseline;justify-content:space-between;margin-bottom:30px">
+      <h2 style="font:600 36px 'Cormorant Garamond',serif;color:#16130E;margin:0">Przykładowe realizacje</h2>
+      <div style="font:400 12px 'Jost',sans-serif;letter-spacing:.2em;text-transform:uppercase;color:#8C8070">Żory · Rybnik · Jastrzębie-Zdrój</div>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:22px">
+      <div style="border-radius:4px;overflow:hidden;background:#fff;border:1px solid rgba(24,20,14,.08)">
+        <div style="aspect-ratio:4/3;background:linear-gradient(120deg,#E8E2D4,#CFC5B0 55%,#DED5C2);position:relative"><div style="position:absolute;inset:0;background:repeating-linear-gradient(0deg,transparent 0 64px,rgba(255,255,255,.6) 64px 66px),repeating-linear-gradient(90deg,transparent 0 96px,rgba(255,255,255,.6) 96px 98px)"></div><div style="position:absolute;top:12px;left:12px;background:rgba(22,19,14,.75);color:#E9DFC8;font:500 10px 'Jost',sans-serif;letter-spacing:.18em;padding:5px 10px;text-transform:uppercase">Zdjęcie realizacji</div></div>
+        <div style="padding:16px 18px"><div style="font:600 17px 'Cormorant Garamond',serif;color:#16130E">Łazienka w jasnym kamieniu</div><div style="font:300 12.5px 'Jost',sans-serif;color:#6E6555;margin-top:3px">Gres 120×60 · Żory, 2026</div></div>
+      </div>
+      <div style="border-radius:4px;overflow:hidden;background:#fff;border:1px solid rgba(24,20,14,.08)">
+        <div style="aspect-ratio:4/3;background:linear-gradient(120deg,#3A362F,#211E19 55%,#4A443A);position:relative"><div style="position:absolute;inset:0;background:repeating-linear-gradient(0deg,transparent 0 64px,rgba(201,164,92,.25) 64px 66px),repeating-linear-gradient(90deg,transparent 0 96px,rgba(201,164,92,.25) 96px 98px)"></div><div style="position:absolute;top:12px;left:12px;background:rgba(22,19,14,.75);color:#E9DFC8;font:500 10px 'Jost',sans-serif;letter-spacing:.18em;padding:5px 10px;text-transform:uppercase">Zdjęcie realizacji</div></div>
+        <div style="padding:16px 18px"><div style="font:600 17px 'Cormorant Garamond',serif;color:#16130E">Ciemny gres, złota armatura</div><div style="font:300 12.5px 'Jost',sans-serif;color:#6E6555;margin-top:3px">Płytki imitujące marmur · Rybnik, 2025</div></div>
+      </div>
+      <div style="border-radius:4px;overflow:hidden;background:#fff;border:1px solid rgba(24,20,14,.08)">
+        <div style="aspect-ratio:4/3;background:linear-gradient(160deg,#D8CBB6,#B7A88E 45%,#CEC2AB);position:relative"><div style="position:absolute;inset:0;background:repeating-linear-gradient(45deg,transparent 0 44px,rgba(255,255,255,.5) 44px 46px),repeating-linear-gradient(-45deg,transparent 0 44px,rgba(255,255,255,.5) 44px 46px)"></div><div style="position:absolute;top:12px;left:12px;background:rgba(22,19,14,.75);color:#E9DFC8;font:500 10px 'Jost',sans-serif;letter-spacing:.18em;padding:5px 10px;text-transform:uppercase">Zdjęcie realizacji</div></div>
+        <div style="padding:16px 18px"><div style="font:600 17px 'Cormorant Garamond',serif;color:#16130E">Mozaika w strefie prysznica</div><div style="font:300 12.5px 'Jost',sans-serif;color:#6E6555;margin-top:3px">Układ w jodełkę · Żory, 2025</div></div>
+      </div>
+      <div style="border-radius:4px;overflow:hidden;background:#fff;border:1px solid rgba(24,20,14,.08)">
+        <div style="aspect-ratio:4/3;background:linear-gradient(120deg,#EDE8DC,#D6CDBB 50%,#E5DDCB);position:relative"><div style="position:absolute;inset:0;background:repeating-linear-gradient(0deg,transparent 0 120px,rgba(180,166,140,.5) 120px 122px)"></div><div style="position:absolute;top:12px;left:12px;background:rgba(22,19,14,.75);color:#E9DFC8;font:500 10px 'Jost',sans-serif;letter-spacing:.18em;padding:5px 10px;text-transform:uppercase">Zdjęcie realizacji</div></div>
+        <div style="padding:16px 18px"><div style="font:600 17px 'Cormorant Garamond',serif;color:#16130E">Mikrocement i drewno</div><div style="font:300 12.5px 'Jost',sans-serif;color:#6E6555;margin-top:3px">Łazienka bez fug · Jastrzębie-Zdrój, 2025</div></div>
+      </div>
+      <div style="border-radius:4px;overflow:hidden;background:#fff;border:1px solid rgba(24,20,14,.08)">
+        <div style="aspect-ratio:4/3;background:linear-gradient(200deg,#C4B79E,#A99A7D 55%,#BBAD92);position:relative"><div style="position:absolute;inset:0;background:repeating-linear-gradient(0deg,transparent 0 40px,rgba(255,255,255,.45) 40px 42px),repeating-linear-gradient(90deg,transparent 0 200px,rgba(255,255,255,.45) 200px 202px)"></div><div style="position:absolute;top:12px;left:12px;background:rgba(22,19,14,.75);color:#E9DFC8;font:500 10px 'Jost',sans-serif;letter-spacing:.18em;padding:5px 10px;text-transform:uppercase">Zdjęcie realizacji</div></div>
+        <div style="padding:16px 18px"><div style="font:600 17px 'Cormorant Garamond',serif;color:#16130E">Lamele gresowe na ścianie</div><div style="font:300 12.5px 'Jost',sans-serif;color:#6E6555;margin-top:3px">Wanna wolnostojąca · Żory, 2024</div></div>
+      </div>
+      <div style="border-radius:4px;overflow:hidden;background:#fff;border:1px solid rgba(24,20,14,.08)">
+        <div style="aspect-ratio:4/3;background:linear-gradient(140deg,#DFD8C8,#C8BEA8 50%,#D2C8B2);position:relative"><div style="position:absolute;inset:0;background:repeating-linear-gradient(0deg,transparent 0 80px,rgba(140,128,112,.4) 80px 82px),repeating-linear-gradient(90deg,transparent 0 80px,rgba(140,128,112,.4) 80px 82px)"></div><div style="position:absolute;top:12px;left:12px;background:rgba(22,19,14,.75);color:#E9DFC8;font:500 10px 'Jost',sans-serif;letter-spacing:.18em;padding:5px 10px;text-transform:uppercase">Zdjęcie realizacji</div></div>
+        <div style="padding:16px 18px"><div style="font:600 17px 'Cormorant Garamond',serif;color:#16130E">Mała łazienka w bloku</div><div style="font:300 12.5px 'Jost',sans-serif;color:#6E6555;margin-top:3px">Optyczne powiększenie · Rybnik, 2024</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- proces -->
+  <div id="proces" style="padding:0 56px 64px">
+    <h2 style="font:600 36px 'Cormorant Garamond',serif;color:#16130E;margin:0 0 30px">Jak wygląda współpraca</h2>
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:20px">
+      <div style="background:#fff;border:1px solid rgba(24,20,14,.08);border-top:3px solid #B8893B;padding:24px 22px;border-radius:0 0 4px 4px"><div style="font:600 30px 'Cormorant Garamond',serif;color:#B8893B">01</div><div style="font:600 15px 'Jost',sans-serif;color:#16130E;margin:8px 0 6px">Kontakt i oględziny</div><div style="font:300 13px/1.55 'Jost',sans-serif;color:#6E6555">Bezpłatne oględziny łazienki, omówienie pomysłów i pomiar.</div></div>
+      <div style="background:#fff;border:1px solid rgba(24,20,14,.08);border-top:3px solid #B8893B;padding:24px 22px;border-radius:0 0 4px 4px"><div style="font:600 30px 'Cormorant Garamond',serif;color:#B8893B">02</div><div style="font:600 15px 'Jost',sans-serif;color:#16130E;margin:8px 0 6px">Wycena i harmonogram</div><div style="font:300 13px/1.55 'Jost',sans-serif;color:#6E6555">Konkretna wycena na piśmie i ustalony termin — bez ukrytych kosztów.</div></div>
+      <div style="background:#fff;border:1px solid rgba(24,20,14,.08);border-top:3px solid #B8893B;padding:24px 22px;border-radius:0 0 4px 4px"><div style="font:600 30px 'Cormorant Garamond',serif;color:#B8893B">03</div><div style="font:600 15px 'Jost',sans-serif;color:#16130E;margin:8px 0 6px">Remont pod klucz</div><div style="font:300 13px/1.55 'Jost',sans-serif;color:#6E6555">Skucie, hydraulika, hydroizolacja, płytki, biały montaż. Codzienny porządek.</div></div>
+      <div style="background:#fff;border:1px solid rgba(24,20,14,.08);border-top:3px solid #B8893B;padding:24px 22px;border-radius:0 0 4px 4px"><div style="font:600 30px 'Cormorant Garamond',serif;color:#B8893B">04</div><div style="font:600 15px 'Jost',sans-serif;color:#16130E;margin:8px 0 6px">Odbiór i gwarancja</div><div style="font:300 13px/1.55 'Jost',sans-serif;color:#6E6555">Wspólny odbiór prac i 3 lata gwarancji na wykonawstwo.</div></div>
+    </div>
+  </div>
+
+  <!-- opinie -->
+  <div id="opinie" style="background:#EFE9DC;padding:64px 56px">
+    <h2 style="font:600 36px 'Cormorant Garamond',serif;color:#16130E;margin:0 0 30px">Opinie klientów</h2>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:22px">
+      <div style="background:#fff;padding:28px 26px;border-radius:4px;border:1px solid rgba(24,20,14,.08)"><div style="color:#B8893B;font-size:15px;letter-spacing:3px">★★★★★</div><p style="font:500 15.5px/1.55 'Cormorant Garamond',serif;color:#2A251C;font-style:italic;margin:14px 0 18px">„Pan Radosław wyremontował nam łazienkę w 3 tygodnie, dokładnie jak obiecał. Fugi równiutkie, docinki przy listwach perfekcyjne."</p><div style="font:600 13px 'Jost',sans-serif;color:#16130E">Anna i Marek K.</div><div style="font:300 12px 'Jost',sans-serif;color:#8C8070">Żory, os. Sikorskiego</div></div>
+      <div style="background:#fff;padding:28px 26px;border-radius:4px;border:1px solid rgba(24,20,14,.08)"><div style="color:#B8893B;font-size:15px;letter-spacing:3px">★★★★★</div><p style="font:500 15.5px/1.55 'Cormorant Garamond',serif;color:#2A251C;font-style:italic;margin:14px 0 18px">„Gres 120×60 położony idealnie w poziomie, zero odchyłek. Widać, że fachowiec z prawdziwego zdarzenia. Polecam każdemu."</p><div style="font:600 13px 'Jost',sans-serif;color:#16130E">Tomasz W.</div><div style="font:300 12px 'Jost',sans-serif;color:#8C8070">Rybnik</div></div>
+      <div style="background:#fff;padding:28px 26px;border-radius:4px;border:1px solid rgba(24,20,14,.08)"><div style="color:#B8893B;font-size:15px;letter-spacing:3px">★★★★★</div><p style="font:500 15.5px/1.55 'Cormorant Garamond',serif;color:#2A251C;font-style:italic;margin:14px 0 18px">„Doradził lepszy układ płytek niż planowaliśmy i wyszło pięknie. Po każdym dniu pracy sprzątnięte. Kultura i terminowość."</p><div style="font:600 13px 'Jost',sans-serif;color:#16130E">Katarzyna P.</div><div style="font:300 12px 'Jost',sans-serif;color:#8C8070">Jastrzębie-Zdrój</div></div>
+    </div>
+  </div>
+
+  <!-- certyfikaty -->
+  <div id="certyfikaty" style="padding:64px 56px">
+    <h2 style="font:600 36px 'Cormorant Garamond',serif;color:#16130E;margin:0 0 8px">Certyfikaty i szkolenia</h2>
+    <p style="font:300 14px 'Jost',sans-serif;color:#6E6555;margin:0 0 28px">Przykładowe — do podmiany na Twoje dokumenty.</p>
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:20px">
+      <div style="border:1px solid rgba(24,20,14,.12);border-radius:4px;padding:24px 20px;text-align:center;background:#FBF8F1"><div style="width:52px;height:52px;margin:0 auto 14px;transform:rotate(45deg);background:linear-gradient(135deg,#B8893B,#8F6A2B);display:flex;align-items:center;justify-content:center"><span style="transform:rotate(-45deg);color:#fff;font:700 18px 'Cormorant Garamond',serif">M</span></div><div style="font:600 14px 'Jost',sans-serif;color:#16130E">Mapei Academy</div><div style="font:300 12px 'Jost',sans-serif;color:#8C8070;margin-top:4px">Systemy hydroizolacji</div></div>
+      <div style="border:1px solid rgba(24,20,14,.12);border-radius:4px;padding:24px 20px;text-align:center;background:#FBF8F1"><div style="width:52px;height:52px;margin:0 auto 14px;transform:rotate(45deg);background:linear-gradient(135deg,#16130E,#4A443A);display:flex;align-items:center;justify-content:center"><span style="transform:rotate(-45deg);color:#C9A45C;font:700 18px 'Cormorant Garamond',serif">A</span></div><div style="font:600 14px 'Jost',sans-serif;color:#16130E">Atlas Fachowca</div><div style="font:300 12px 'Jost',sans-serif;color:#8C8070;margin-top:4px">Kleje odkształcalne</div></div>
+      <div style="border:1px solid rgba(24,20,14,.12);border-radius:4px;padding:24px 20px;text-align:center;background:#FBF8F1"><div style="width:52px;height:52px;margin:0 auto 14px;transform:rotate(45deg);background:linear-gradient(135deg,#8C8070,#6E6555);display:flex;align-items:center;justify-content:center"><span style="transform:rotate(-45deg);color:#fff;font:700 18px 'Cormorant Garamond',serif">S</span></div><div style="font:600 14px 'Jost',sans-serif;color:#16130E">Sopro Szkolenia</div><div style="font:300 12px 'Jost',sans-serif;color:#8C8070;margin-top:4px">Gres wielkoformatowy</div></div>
+      <div style="border:1px solid rgba(24,20,14,.12);border-radius:4px;padding:24px 20px;text-align:center;background:#FBF8F1"><div style="width:52px;height:52px;margin:0 auto 14px;transform:rotate(45deg);background:linear-gradient(135deg,#C9A45C,#B8893B);display:flex;align-items:center;justify-content:center"><span style="transform:rotate(-45deg);color:#16130E;font:700 18px 'Cormorant Garamond',serif">✓</span></div><div style="font:600 14px 'Jost',sans-serif;color:#16130E">Czeladnik → Mistrz</div><div style="font:300 12px 'Jost',sans-serif;color:#8C8070;margin-top:4px">Dyplom mistrzowski, Izba Rzemieślnicza</div></div>
+    </div>
+  </div>
+
+  <!-- kontakt -->
+  <div id="kontakt" style="background:#16130E;padding:64px 56px;display:grid;grid-template-columns:1fr 1fr;gap:56px">
+    <div>
+      <h2 style="font:600 40px 'Cormorant Garamond',serif;color:#F7F3EA;margin:0 0 16px">Umów bezpłatną wycenę</h2>
+      <p style="font:300 15px/1.65 'Jost',sans-serif;color:#B8AE9C;margin:0 0 30px">Zadzwoń lub zostaw numer — oddzwonię tego samego dnia i umówimy się na oględziny.</p>
+      <a href="tel:609099502" style="display:flex;align-items:center;gap:16px;margin-bottom:18px"><span style="width:44px;height:44px;border:1px solid #C9A45C;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#C9A45C">☎</span><span style="font:600 24px 'Jost',sans-serif;color:#F7F3EA">609 099 502</span></a>
+      <a href="mailto:sar.rad@op.pl" style="display:flex;align-items:center;gap:16px"><span style="width:44px;height:44px;border:1px solid #C9A45C;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#C9A45C">✉</span><span style="font:400 17px 'Jost',sans-serif;color:#F7F3EA">sar.rad@op.pl</span></a>
+    </div>
+    <sc-if value="{{ notSent }}" hint-placeholder-val="{{ true }}">
+    <form style="display:flex;flex-direction:column;gap:12px">
+      <input name="name" placeholder="Imię i nazwisko" style="background:rgba(247,243,234,.06);border:1px solid rgba(201,164,92,.35);border-radius:3px;padding:14px 16px;font:400 14px 'Jost',sans-serif;color:#F7F3EA;outline:none">
+      <input name="phone" placeholder="Telefon" style="background:rgba(247,243,234,.06);border:1px solid rgba(201,164,92,.35);border-radius:3px;padding:14px 16px;font:400 14px 'Jost',sans-serif;color:#F7F3EA;outline:none">
+      <textarea name="message" placeholder="Opisz krótko łazienkę (metraż, zakres prac)…" rows="4" style="background:rgba(247,243,234,.06);border:1px solid rgba(201,164,92,.35);border-radius:3px;padding:14px 16px;font:400 14px 'Jost',sans-serif;color:#F7F3EA;outline:none;resize:vertical"></textarea>
+      <button type="submit" onClick="{{ send }}" style="background:#B8893B;color:#fff;border:none;padding:15px;border-radius:3px;font:600 14px 'Jost',sans-serif;letter-spacing:.1em;text-transform:uppercase;cursor:pointer" style-hover="background:#C9A45C">Wyślij zapytanie</button>
+    </form>
+    </sc-if>
+    <sc-if value="{{ sent }}" hint-placeholder-val="{{ false }}">
+    <div style="display:flex;flex-direction:column;justify-content:center;align-items:center;border:1px solid rgba(201,164,92,.35);border-radius:3px;text-align:center;padding:40px">
+      <div style="font:600 30px 'Cormorant Garamond',serif;color:#C9A45C">Dziękuję!</div>
+      <div style="font:300 14px 'Jost',sans-serif;color:#B8AE9C;margin-top:8px">Oddzwonię najszybciej jak to możliwe.</div>
+    </div>
+    </sc-if>
+  </div>
+  <footer style="background:#0F0D09;padding:20px 56px;display:flex;justify-content:space-between;align-items:center;font:300 12px 'Jost',sans-serif;color:#8C8070">
+    <span>© 2026 SR Glazurnik — Radosław Saramak · Żory i okolice</span>
+    <span style="letter-spacing:.2em;text-transform:uppercase">Doświadczenie · Precyzja · Trwałość</span>
+  </footer>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+const FORMSPREE = "https://formspree.io/f/XXXXXXX"; // <- podmień na swój endpoint z formspree.io
+class Component extends DCLogic {
+  state = { sent: false };
+  renderVals() {
+    return {
+      sent: this.state.sent,
+      notSent: !this.state.sent,
+      send: async (e) => {
+        e.preventDefault();
+        const form = e.target.closest("form");
+        const res = await fetch(FORMSPREE, {
+          method: "POST",
+          body: new FormData(form),
+          headers: { Accept: "application/json" }
+        });
+        if (res.ok) this.setState({ sent: true });
+      }
+    };
+  }
+}
+</script>
+</body>
+</html>
