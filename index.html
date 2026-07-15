@@ -124,8 +124,11 @@ input::placeholder,textarea::placeholder{color:#a79c8e}
 .review-card blockquote{font-family:'Cormorant Garamond',Georgia,serif;font-size:1.18rem;line-height:1.5;font-style:italic;margin:0 0 18px;color:#2a251c}
 .review-card cite{display:block;font-style:normal;font-weight:700;margin-top:auto}
 .review-card span{display:block;color:var(--muted);font-size:.88rem;margin-top:3px}
-.certificate-card{text-align:center;padding:24px 18px;background:#fbfaf6}
+.certificate-card{text-align:center;padding:24px 18px;background:#fbfaf6;display:flex;flex-direction:column;align-items:center}
 .certificate-mark{width:52px;height:52px;margin:0 auto 14px;border-radius:6px;background:linear-gradient(135deg,var(--accent),var(--sage));display:flex;align-items:center;justify-content:center;color:#fff;font-family:'Cormorant Garamond',Georgia,serif;font-size:1.45rem;font-weight:700}
+.certificate-thumbs{width:100%;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin-top:16px}
+.certificate-thumbs a{display:block;aspect-ratio:4/3;border:1px solid var(--line);border-radius:4px;overflow:hidden;background:#fff;cursor:zoom-in}
+.certificate-thumbs img{width:100%;height:100%;object-fit:contain;padding:2px;background:#fff}
 .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center}
 .contact-links{display:grid;gap:14px;margin-top:28px}
 .contact-link{display:flex;align-items:center;gap:14px;color:var(--page)}
@@ -188,6 +191,7 @@ input::placeholder,textarea::placeholder{color:#a79c8e}
   .lightbox-close{top:14px;right:14px}
   .lightbox-caption{font-size:.88rem}
   .process-grid,.review-grid,.certificate-grid{grid-template-columns:1fr}
+  .certificate-thumbs{grid-template-columns:repeat(4,minmax(0,1fr))}
   .contact-link span{font-size:1.18rem}
   .footer-inner{display:grid}
 }
@@ -390,17 +394,95 @@ input::placeholder,textarea::placeholder{color:#a79c8e}
       </div>
     </section>
 
-    <section id="certyfikaty" class="section section-muted">
+    <section id="certyfikaty" class="section section-muted" onClick="{{ handleGalleryClick }}">
       <div class="container">
         <div class="section-heading">
           <h2>Certyfikaty i szkolenia</h2>
           <p class="section-note">Praktyka, sprawdzone systemy i dokładność wykonania.</p>
         </div>
         <div class="certificate-grid">
-          <article class="certificate-card"><div class="certificate-mark">M</div><h3>Mapei Academy</h3><p>Systemy hydroizolacji</p></article>
-          <article class="certificate-card"><div class="certificate-mark">A</div><h3>Atlas Fachowca</h3><p>Kleje odkształcalne</p></article>
-          <article class="certificate-card"><div class="certificate-mark">S</div><h3>Sopro Szkolenia</h3><p>Gres</p></article>
-          <article class="certificate-card"><div class="certificate-mark">✓</div><h3>Czeladnik - Mistrz</h3><p>Dyplom mistrzowski, Izba Rzemieślnicza</p></article>
+          <article class="certificate-card">
+            <div class="certificate-mark">M</div>
+            <h3>Mapei Academy</h3>
+            <p>Systemy hydroizolacji i autoryzacja techniczna MAPEI TEAM</p>
+            <div class="certificate-thumbs" aria-label="Certyfikaty Mapei">
+              <a href="uploads/certyfikaty/mapei-system-hydroizolacji.jpg" data-gallery="cert-mapei" data-index="0" aria-label="Pokaż certyfikat Mapei - system hydroizolacji">
+                <img decoding="async" loading="lazy" src="uploads/certyfikaty/mapei-system-hydroizolacji.jpg" alt="Certyfikat Mapei - system hydroizolacji">
+              </a>
+              <a href="uploads/certyfikaty/mapei-autoryzacja-techniczna-mapei-team.jpg" data-gallery="cert-mapei" data-index="1" aria-label="Pokaż certyfikat autoryzacji technicznej MAPEI TEAM">
+                <img decoding="async" loading="lazy" src="uploads/certyfikaty/mapei-autoryzacja-techniczna-mapei-team.jpg" alt="Certyfikat autoryzacji technicznej MAPEI TEAM">
+              </a>
+            </div>
+          </article>
+          <article class="certificate-card">
+            <div class="certificate-mark">A</div>
+            <h3>Atlas Fachowca</h3>
+            <p>Systemy łazienkowe, tarasy, balkony i wielkie formaty</p>
+            <div class="certificate-thumbs" aria-label="Certyfikaty Atlas">
+              <a href="uploads/certyfikaty/atlas-system-lazienkowy.jpg" data-gallery="cert-atlas" data-index="0" aria-label="Pokaż certyfikat Atlas - system łazienkowy">
+                <img decoding="async" loading="lazy" src="uploads/certyfikaty/atlas-system-lazienkowy.jpg" alt="Certyfikat Atlas - system łazienkowy">
+              </a>
+              <a href="uploads/certyfikaty/atlas-tarasy-i-balkony.jpg" data-gallery="cert-atlas" data-index="1" aria-label="Pokaż certyfikat Atlas - tarasy i balkony">
+                <img decoding="async" loading="lazy" src="uploads/certyfikaty/atlas-tarasy-i-balkony.jpg" alt="Certyfikat Atlas - tarasy i balkony">
+              </a>
+              <a href="uploads/certyfikaty/atlas-systemy-tarasowe.jpg" data-gallery="cert-atlas" data-index="2" aria-label="Pokaż certyfikat Atlas - systemy tarasowe">
+                <img decoding="async" loading="lazy" src="uploads/certyfikaty/atlas-systemy-tarasowe.jpg" alt="Certyfikat Atlas - systemy tarasowe">
+              </a>
+              <a href="uploads/certyfikaty/atlas-wykonywanie-i-naprawa-tarasow-i-balkonow.jpg" data-gallery="cert-atlas" data-index="3" aria-label="Pokaż certyfikat Atlas - wykonywanie i naprawa tarasów i balkonów">
+                <img decoding="async" loading="lazy" src="uploads/certyfikaty/atlas-wykonywanie-i-naprawa-tarasow-i-balkonow.jpg" alt="Certyfikat Atlas - wykonywanie i naprawa tarasów i balkonów">
+              </a>
+              <a href="uploads/certyfikaty/atlas-tubadzin-wielkoformatowe-okladziny-ceramiczne.jpg" data-gallery="cert-atlas" data-index="4" aria-label="Pokaż certyfikat Atlas i Tubądzin - wielkoformatowe okładziny ceramiczne">
+                <img decoding="async" loading="lazy" src="uploads/certyfikaty/atlas-tubadzin-wielkoformatowe-okladziny-ceramiczne.jpg" alt="Certyfikat Atlas i Tubądzin - wielkoformatowe okładziny ceramiczne">
+              </a>
+            </div>
+          </article>
+          <article class="certificate-card">
+            <div class="certificate-mark">+</div>
+            <h3>Inne szkolenia</h3>
+            <p>Botament, Kerakoll, Renoplast, Mira, Geberit, Witan i Polski Gips</p>
+            <div class="certificate-thumbs" aria-label="Inne szkolenia i certyfikaty">
+              <a href="uploads/certyfikaty/botament-nowoczesne-izolacje-i-plyty-wielkoformatowe.jpg" data-gallery="cert-inne" data-index="0" aria-label="Pokaż certyfikat Botament">
+                <img decoding="async" loading="lazy" src="uploads/certyfikaty/botament-nowoczesne-izolacje-i-plyty-wielkoformatowe.jpg" alt="Certyfikat Botament - izolacje i płyty wielkoformatowe">
+              </a>
+              <a href="uploads/certyfikaty/kerakoll-technologie-prac-wykonczeniowych.jpg" data-gallery="cert-inne" data-index="1" aria-label="Pokaż certyfikat Kerakoll">
+                <img decoding="async" loading="lazy" src="uploads/certyfikaty/kerakoll-technologie-prac-wykonczeniowych.jpg" alt="Certyfikat Kerakoll - technologie prac wykończeniowych">
+              </a>
+              <a href="uploads/certyfikaty/renoplast-systemy-tarasowe.jpg" data-gallery="cert-inne" data-index="2" aria-label="Pokaż certyfikat Renoplast">
+                <img decoding="async" loading="lazy" src="uploads/certyfikaty/renoplast-systemy-tarasowe.jpg" alt="Certyfikat Renoplast - systemy tarasowe">
+              </a>
+              <a href="uploads/certyfikaty/mira-produkty-budowlane.jpg" data-gallery="cert-inne" data-index="3" aria-label="Pokaż certyfikat Mira">
+                <img decoding="async" loading="lazy" src="uploads/certyfikaty/mira-produkty-budowlane.jpg" alt="Certyfikat Mira - produkty budowlane">
+              </a>
+              <a href="uploads/certyfikaty/geberit-systemy-instalacyjne.jpg" data-gallery="cert-inne" data-index="4" aria-label="Pokaż zaświadczenie Geberit">
+                <img decoding="async" loading="lazy" src="uploads/certyfikaty/geberit-systemy-instalacyjne.jpg" alt="Zaświadczenie Geberit - systemy instalacyjne">
+              </a>
+              <a href="uploads/certyfikaty/witan-szkolenie-dla-glazurnikow.jpg" data-gallery="cert-inne" data-index="5" aria-label="Pokaż certyfikat Witan">
+                <img decoding="async" loading="lazy" src="uploads/certyfikaty/witan-szkolenie-dla-glazurnikow.jpg" alt="Certyfikat Witan - szkolenie dla glazurników">
+              </a>
+              <a href="uploads/certyfikaty/polski-gips-kurs-doskonalacy-roboty-wykonczeniowe.jpg" data-gallery="cert-inne" data-index="6" aria-label="Pokaż certyfikat Polski Gips">
+                <img decoding="async" loading="lazy" src="uploads/certyfikaty/polski-gips-kurs-doskonalacy-roboty-wykonczeniowe.jpg" alt="Certyfikat Polski Gips - kurs doskonalący">
+              </a>
+              <a href="uploads/certyfikaty/polski-gips-kurs-roboty-wykonczeniowe.jpg" data-gallery="cert-inne" data-index="7" aria-label="Pokaż certyfikat Polski Gips - roboty wykończeniowe">
+                <img decoding="async" loading="lazy" src="uploads/certyfikaty/polski-gips-kurs-roboty-wykonczeniowe.jpg" alt="Certyfikat Polski Gips - roboty wykończeniowe">
+              </a>
+              <a href="uploads/certyfikaty/certyfikat-rzeczoznawca-ssrw-roboty-wykonczeniowe.jpg" data-gallery="cert-inne" data-index="8" aria-label="Pokaż certyfikat rzeczoznawcy SSRW">
+                <img decoding="async" loading="lazy" src="uploads/certyfikaty/certyfikat-rzeczoznawca-ssrw-roboty-wykonczeniowe.jpg" alt="Certyfikat rzeczoznawcy SSRW robót wykończeniowych">
+              </a>
+            </div>
+          </article>
+          <article class="certificate-card">
+            <div class="certificate-mark">✓</div>
+            <h3>Dyplomy mistrzowskie</h3>
+            <p>Dyplom mistrzowski glazurnika i posadzkarza, Izba Rzemieślnicza</p>
+            <div class="certificate-thumbs" aria-label="Dyplomy mistrzowskie">
+              <a href="uploads/certyfikaty/dyplom-mistrzowski-glazurnik.jpg" data-gallery="cert-mistrz" data-index="0" aria-label="Pokaż dyplom mistrzowski glazurnika">
+                <img decoding="async" loading="lazy" src="uploads/certyfikaty/dyplom-mistrzowski-glazurnik.jpg" alt="Dyplom mistrzowski glazurnika">
+              </a>
+              <a href="uploads/certyfikaty/dyplom-mistrzowski-posadzkarz.jpg" data-gallery="cert-mistrz" data-index="1" aria-label="Pokaż dyplom mistrzowski posadzkarza">
+                <img decoding="async" loading="lazy" src="uploads/certyfikaty/dyplom-mistrzowski-posadzkarz.jpg" alt="Dyplom mistrzowski posadzkarza">
+              </a>
+            </div>
+          </article>
         </div>
       </div>
     </section>
@@ -515,6 +597,44 @@ const GALLERIES = {
     images: [
       { src: "uploads/realizacje/6/realizacja-06-male-wc-metro-02.jpeg", alt: "Toaleta i umywalka w małym WC" },
       { src: "uploads/realizacje/6/realizacja-06-male-wc-metro-05.jpeg", alt: "Detal zabudowy i uchwytu papieru" }
+    ]
+  },
+  "cert-mapei": {
+    title: "Mapei Academy - certyfikaty i szkolenia",
+    images: [
+      { src: "uploads/certyfikaty/mapei-system-hydroizolacji.jpg", alt: "Certyfikat Mapei - system hydroizolacji" },
+      { src: "uploads/certyfikaty/mapei-autoryzacja-techniczna-mapei-team.jpg", alt: "Certyfikat autoryzacji technicznej MAPEI TEAM" }
+    ]
+  },
+  "cert-atlas": {
+    title: "Atlas Fachowca - certyfikaty i szkolenia",
+    images: [
+      { src: "uploads/certyfikaty/atlas-system-lazienkowy.jpg", alt: "Certyfikat Atlas - system łazienkowy" },
+      { src: "uploads/certyfikaty/atlas-tarasy-i-balkony.jpg", alt: "Certyfikat Atlas - tarasy i balkony" },
+      { src: "uploads/certyfikaty/atlas-systemy-tarasowe.jpg", alt: "Certyfikat Atlas - systemy tarasowe" },
+      { src: "uploads/certyfikaty/atlas-wykonywanie-i-naprawa-tarasow-i-balkonow.jpg", alt: "Certyfikat Atlas - wykonywanie i naprawa tarasów i balkonów" },
+      { src: "uploads/certyfikaty/atlas-tubadzin-wielkoformatowe-okladziny-ceramiczne.jpg", alt: "Certyfikat Atlas i Tubądzin - wielkoformatowe okładziny ceramiczne" }
+    ]
+  },
+  "cert-inne": {
+    title: "Inne szkolenia i certyfikaty",
+    images: [
+      { src: "uploads/certyfikaty/botament-nowoczesne-izolacje-i-plyty-wielkoformatowe.jpg", alt: "Certyfikat Botament - izolacje i płyty wielkoformatowe" },
+      { src: "uploads/certyfikaty/kerakoll-technologie-prac-wykonczeniowych.jpg", alt: "Certyfikat Kerakoll - technologie prac wykończeniowych" },
+      { src: "uploads/certyfikaty/renoplast-systemy-tarasowe.jpg", alt: "Certyfikat Renoplast - systemy tarasowe" },
+      { src: "uploads/certyfikaty/mira-produkty-budowlane.jpg", alt: "Certyfikat Mira - produkty budowlane" },
+      { src: "uploads/certyfikaty/geberit-systemy-instalacyjne.jpg", alt: "Zaświadczenie Geberit - systemy instalacyjne" },
+      { src: "uploads/certyfikaty/witan-szkolenie-dla-glazurnikow.jpg", alt: "Certyfikat Witan - szkolenie dla glazurników" },
+      { src: "uploads/certyfikaty/polski-gips-kurs-doskonalacy-roboty-wykonczeniowe.jpg", alt: "Certyfikat Polski Gips - kurs doskonalący" },
+      { src: "uploads/certyfikaty/polski-gips-kurs-roboty-wykonczeniowe.jpg", alt: "Certyfikat Polski Gips - roboty wykończeniowe" },
+      { src: "uploads/certyfikaty/certyfikat-rzeczoznawca-ssrw-roboty-wykonczeniowe.jpg", alt: "Certyfikat rzeczoznawcy SSRW robót wykończeniowych" }
+    ]
+  },
+  "cert-mistrz": {
+    title: "Dyplomy mistrzowskie",
+    images: [
+      { src: "uploads/certyfikaty/dyplom-mistrzowski-glazurnik.jpg", alt: "Dyplom mistrzowski glazurnika" },
+      { src: "uploads/certyfikaty/dyplom-mistrzowski-posadzkarz.jpg", alt: "Dyplom mistrzowski posadzkarza" }
     ]
   }
 };
