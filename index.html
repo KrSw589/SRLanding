@@ -53,11 +53,7 @@
 <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16x16.png">
 <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
-<script src="./support.js"></script>
-</head>
-<body>
-<x-dc>
-<helmet data-dc-atomics>
+<link rel="preload" as="image" href="uploads/realizacje/1/realizacja-01-lazienka-poddasze-02.jpeg" fetchpriority="high">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Jost:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -239,10 +235,11 @@ input::placeholder,textarea::placeholder{color:#a79c8e}
   .contact-link span{font-size:1.18rem}
   .footer-inner{display:grid}
 }
+[hidden]{display:none!important}
 </style>
-</helmet>
-
-<div class="site-shell" data-screen-label="Strona SR Glazurnik">
+</head>
+<body>
+<div class="site-shell">
   <header class="site-header">
     <div class="container header-inner">
       <a class="brand" href="#top" aria-label="SR Glazurnik - strona główna">
@@ -260,26 +257,24 @@ input::placeholder,textarea::placeholder{color:#a79c8e}
         <a href="#kontakt">Kontakt</a>
       </nav>
       <a class="header-phone" href="tel:609099502">609 099 502</a>
-      <button class="menu-toggle {{ menuButtonClass }}" type="button" aria-label="{{ menuLabel }}" aria-controls="mobile-menu" aria-expanded="{{ menuOpen }}" onClick="{{ toggleMenu }}">
+      <button class="menu-toggle" type="button" aria-label="Otwórz menu" aria-controls="mobile-menu" aria-expanded="false">
         <span></span>
         <span></span>
         <span></span>
       </button>
     </div>
-    <sc-if value="{{ menuOpen }}" hint-placeholder-val="{{ false }}">
-    <div class="mobile-menu" id="mobile-menu" onKeyDown="{{ handleMenuKey }}">
+    <div class="mobile-menu" id="mobile-menu" hidden>
       <div class="container mobile-menu-inner">
-        <nav class="mobile-menu-nav" aria-label="Nawigacja mobilna" onClick="{{ closeMenu }}">
+        <nav class="mobile-menu-nav" aria-label="Nawigacja mobilna">
           <a href="#realizacje">Realizacje</a>
           <a href="#proces">Proces</a>
           <a href="#opinie">Opinie</a>
           <a href="#certyfikaty">Certyfikaty</a>
           <a href="#kontakt">Kontakt</a>
         </nav>
-        <a class="mobile-menu-phone" href="tel:609099502" onClick="{{ closeMenu }}">609 099 502</a>
+        <a class="mobile-menu-phone" href="tel:609099502">609 099 502</a>
       </div>
     </div>
-    </sc-if>
   </header>
 
   <main id="top">
@@ -305,7 +300,7 @@ input::placeholder,textarea::placeholder{color:#a79c8e}
       </div>
     </section>
 
-    <section id="realizacje" class="section" onClick="{{ handleGalleryClick }}">
+    <section id="realizacje" class="section">
       <div class="container">
         <div class="section-heading">
           <h2>Realizacje</h2>
@@ -438,7 +433,7 @@ input::placeholder,textarea::placeholder{color:#a79c8e}
       </div>
     </section>
 
-    <section id="certyfikaty" class="section section-muted" onClick="{{ handleGalleryClick }}">
+    <section id="certyfikaty" class="section section-muted">
       <div class="container">
         <div class="section-heading">
           <h2>Certyfikaty i szkolenia</h2>
@@ -545,40 +540,34 @@ input::placeholder,textarea::placeholder{color:#a79c8e}
           </div>
         </div>
         <div>
-          <sc-if value="{{ notSent }}" hint-placeholder-val="{{ true }}">
-          <form class="contact-form" onSubmit="{{ send }}">
-            <input name="name" placeholder="Imię i nazwisko" autocomplete="name">
-            <input name="phone" placeholder="Telefon" autocomplete="tel">
-            <textarea name="message" placeholder="Opisz krótko łazienkę (metraż, zakres prac)..." rows="4"></textarea>
+          <form class="contact-form">
+            <input name="name" placeholder="Imię i nazwisko" aria-label="Imię i nazwisko" autocomplete="name">
+            <input name="phone" type="tel" placeholder="Telefon" aria-label="Telefon" autocomplete="tel" required>
+            <textarea name="message" placeholder="Opisz krótko łazienkę (metraż, zakres prac)..." aria-label="Opis łazienki" rows="4"></textarea>
             <button class="button button-primary" type="submit">Wyślij zapytanie</button>
           </form>
-          </sc-if>
-          <sc-if value="{{ sent }}" hint-placeholder-val="{{ false }}">
-          <div class="thanks">
+          <div class="thanks" hidden>
             <strong>Dziękuję!</strong>
             <span>Oddzwonię najszybciej jak to możliwe.</span>
           </div>
-          </sc-if>
         </div>
       </div>
     </section>
 
-    <sc-if value="{{ lightboxOpen }}" hint-placeholder-val="{{ false }}">
-    <div class="lightbox" role="dialog" aria-modal="true" aria-label="{{ lightboxTitle }}" tabIndex="0" onClick="{{ closeGallery }}" onKeyDown="{{ handleLightboxKey }}">
-      <button class="lightbox-close" type="button" aria-label="Zamknij galerię" onClick="{{ closeGallery }}">×</button>
-      <button class="lightbox-arrow lightbox-prev" type="button" aria-label="Poprzednie zdjęcie" onClick="{{ prevSlide }}">‹</button>
-      <div class="lightbox-stage" onClick="{{ stopLightboxClick }}" onTouchStart="{{ handleTouchStart }}" onTouchEnd="{{ handleTouchEnd }}">
+    <div class="lightbox" role="dialog" aria-modal="true" aria-label="Galeria zdjęć" tabindex="-1" hidden>
+      <button class="lightbox-close" type="button" aria-label="Zamknij galerię">×</button>
+      <button class="lightbox-arrow lightbox-prev" type="button" aria-label="Poprzednie zdjęcie">‹</button>
+      <div class="lightbox-stage">
         <div class="lightbox-frame">
-          <img sc-camel-src="{{ lightboxImage.src }}" alt="{{ lightboxImage.alt }}" draggable="false">
+          <img alt="" draggable="false">
         </div>
         <div class="lightbox-caption">
-          <span>{{ lightboxTitle }}</span>
-          <span>{{ lightboxCounter }}</span>
+          <span class="lightbox-title"></span>
+          <span class="lightbox-counter"></span>
         </div>
       </div>
-      <button class="lightbox-arrow lightbox-next" type="button" aria-label="Następne zdjęcie" onClick="{{ nextSlide }}">›</button>
+      <button class="lightbox-arrow lightbox-next" type="button" aria-label="Następne zdjęcie">›</button>
     </div>
-    </sc-if>
   </main>
 
   <footer class="site-footer">
@@ -588,8 +577,7 @@ input::placeholder,textarea::placeholder{color:#a79c8e}
     </div>
   </footer>
 </div>
-</x-dc>
-<script type="text/x-dc" data-dc-script>
+<script>
 const FORMSPREE = "https://formspree.io/f/xkodojwa";
 const GALLERIES = {
   1: {
@@ -683,103 +671,132 @@ const GALLERIES = {
   }
 };
 
-class Component extends DCLogic {
-  state = { sent: false, galleryId: null, slideIndex: 0, menuOpen: false };
-  touchStartX = null;
+(() => {
+  const menuButton = document.querySelector(".menu-toggle");
+  const mobileMenu = document.getElementById("mobile-menu");
 
-  activeGallery() {
-    return GALLERIES[this.state.galleryId] || null;
+  function setMenu(open) {
+    mobileMenu.hidden = !open;
+    menuButton.classList.toggle("is-open", open);
+    menuButton.setAttribute("aria-expanded", String(open));
+    menuButton.setAttribute("aria-label", open ? "Zamknij menu" : "Otwórz menu");
   }
 
-  moveSlide(step) {
-    const gallery = this.activeGallery();
+  menuButton.addEventListener("click", (e) => {
+    e.preventDefault();
+    setMenu(mobileMenu.hidden);
+  });
+  mobileMenu.addEventListener("click", (e) => {
+    if (e.target.closest("a")) setMenu(false);
+  });
+
+  const lightbox = document.querySelector(".lightbox");
+  const stage = lightbox.querySelector(".lightbox-stage");
+  const lightboxImg = lightbox.querySelector(".lightbox-frame img");
+  const lightboxTitle = lightbox.querySelector(".lightbox-title");
+  const lightboxCounter = lightbox.querySelector(".lightbox-counter");
+  let gallery = null;
+  let slideIndex = 0;
+  let touchStartX = null;
+  let lastFocus = null;
+
+  function renderSlide() {
+    const image = gallery.images[slideIndex];
+    lightboxImg.src = image.src;
+    lightboxImg.alt = image.alt;
+    lightboxTitle.textContent = gallery.title;
+    lightboxCounter.textContent = `${slideIndex + 1} / ${gallery.images.length}`;
+    lightbox.setAttribute("aria-label", gallery.title);
+  }
+
+  function openGallery(id, index) {
+    gallery = GALLERIES[id];
+    slideIndex = Math.min(Math.max(index, 0), gallery.images.length - 1);
+    renderSlide();
+    lastFocus = document.activeElement;
+    lightbox.hidden = false;
+    lightbox.focus();
+  }
+
+  function closeGallery() {
+    gallery = null;
+    lightbox.hidden = true;
+    lightboxImg.removeAttribute("src");
+    lastFocus?.focus?.();
+  }
+
+  function moveSlide(step) {
     if (!gallery) return;
     const count = gallery.images.length;
-    this.setState({ slideIndex: (this.state.slideIndex + step + count) % count });
+    slideIndex = (slideIndex + step + count) % count;
+    renderSlide();
   }
 
-  renderVals() {
-    const gallery = this.activeGallery();
-    const lightboxImage = gallery ? gallery.images[this.state.slideIndex] : { src: "", alt: "" };
-    return {
-      sent: this.state.sent,
-      notSent: !this.state.sent,
-      menuOpen: this.state.menuOpen,
-      menuButtonClass: this.state.menuOpen ? "is-open" : "",
-      menuLabel: this.state.menuOpen ? "Zamknij menu" : "Otwórz menu",
-      lightboxOpen: !!gallery,
-      lightboxImage,
-      lightboxTitle: gallery ? gallery.title : "",
-      lightboxCounter: gallery ? `${this.state.slideIndex + 1} / ${gallery.images.length}` : "",
-      toggleMenu: (e) => {
-        e.preventDefault();
-        this.setState({ menuOpen: !this.state.menuOpen });
-      },
-      closeMenu: () => {
-        if (this.state.menuOpen) this.setState({ menuOpen: false });
-      },
-      handleMenuKey: (e) => {
-        if (e.key === "Escape") this.setState({ menuOpen: false });
-      },
-      handleGalleryClick: (e) => {
-        const link = e.target.closest("a[data-gallery]");
-        if (!link) return;
-        const galleryId = link.dataset.gallery;
-        const selectedGallery = GALLERIES[galleryId];
-        if (!selectedGallery) return;
-        e.preventDefault();
-        const requestedIndex = Number(link.dataset.index || 0);
-        const slideIndex = Number.isFinite(requestedIndex)
-          ? Math.min(Math.max(requestedIndex, 0), selectedGallery.images.length - 1)
-          : 0;
-        this.setState({ galleryId, slideIndex });
-      },
-      closeGallery: (e) => {
-        e?.preventDefault?.();
-        this.setState({ galleryId: null, slideIndex: 0 });
-      },
-      stopLightboxClick: (e) => {
-        e.stopPropagation();
-      },
-      prevSlide: (e) => {
-        e?.preventDefault?.();
-        e?.stopPropagation?.();
-        this.moveSlide(-1);
-      },
-      nextSlide: (e) => {
-        e?.preventDefault?.();
-        e?.stopPropagation?.();
-        this.moveSlide(1);
-      },
-      handleTouchStart: (e) => {
-        this.touchStartX = e.touches?.[0]?.clientX ?? null;
-      },
-      handleTouchEnd: (e) => {
-        if (this.touchStartX === null) return;
-        const endX = e.changedTouches?.[0]?.clientX ?? this.touchStartX;
-        const delta = endX - this.touchStartX;
-        this.touchStartX = null;
-        if (Math.abs(delta) < 45) return;
-        this.moveSlide(delta < 0 ? 1 : -1);
-      },
-      handleLightboxKey: (e) => {
-        if (e.key === "Escape") this.setState({ galleryId: null, slideIndex: 0 });
-        if (e.key === "ArrowLeft") this.moveSlide(-1);
-        if (e.key === "ArrowRight") this.moveSlide(1);
-      },
-      send: async (e) => {
-        e.preventDefault();
-        const form = e.target.closest("form");
-        const res = await fetch(FORMSPREE, {
-          method: "POST",
-          body: new FormData(form),
-          headers: { Accept: "application/json" }
-        });
-        if (res.ok) this.setState({ sent: true });
-      }
-    };
-  }
-}
+  document.addEventListener("click", (e) => {
+    const link = e.target.closest("a[data-gallery]");
+    if (!link || !GALLERIES[link.dataset.gallery]) return;
+    e.preventDefault();
+    const index = Number(link.dataset.index || 0);
+    openGallery(link.dataset.gallery, Number.isFinite(index) ? index : 0);
+  });
+
+  lightbox.addEventListener("click", closeGallery);
+  stage.addEventListener("click", (e) => e.stopPropagation());
+  lightbox.querySelector(".lightbox-close").addEventListener("click", (e) => {
+    e.stopPropagation();
+    closeGallery();
+  });
+  lightbox.querySelector(".lightbox-prev").addEventListener("click", (e) => {
+    e.stopPropagation();
+    moveSlide(-1);
+  });
+  lightbox.querySelector(".lightbox-next").addEventListener("click", (e) => {
+    e.stopPropagation();
+    moveSlide(1);
+  });
+
+  stage.addEventListener("touchstart", (e) => {
+    touchStartX = e.touches[0]?.clientX ?? null;
+  }, { passive: true });
+  stage.addEventListener("touchend", (e) => {
+    if (touchStartX === null) return;
+    const delta = (e.changedTouches[0]?.clientX ?? touchStartX) - touchStartX;
+    touchStartX = null;
+    if (Math.abs(delta) >= 45) moveSlide(delta < 0 ? 1 : -1);
+  });
+
+  document.addEventListener("keydown", (e) => {
+    if (gallery) {
+      if (e.key === "Escape") closeGallery();
+      if (e.key === "ArrowLeft") moveSlide(-1);
+      if (e.key === "ArrowRight") moveSlide(1);
+    } else if (e.key === "Escape" && !mobileMenu.hidden) {
+      setMenu(false);
+    }
+  });
+
+  const form = document.querySelector(".contact-form");
+  const thanks = document.querySelector(".thanks");
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    const button = form.querySelector("button[type=submit]");
+    button.disabled = true;
+    try {
+      const res = await fetch(FORMSPREE, {
+        method: "POST",
+        body: new FormData(form),
+        headers: { Accept: "application/json" }
+      });
+      if (!res.ok) throw new Error(res.statusText);
+      form.hidden = true;
+      thanks.hidden = false;
+    } catch {
+      alert("Nie udało się wysłać wiadomości. Zadzwoń proszę: 609 099 502.");
+    } finally {
+      button.disabled = false;
+    }
+  });
+})();
 </script>
 </body>
 </html>
