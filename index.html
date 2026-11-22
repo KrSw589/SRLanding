@@ -46,6 +46,8 @@
     { "@type": "City", "name": "Rybnik" },
     { "@type": "City", "name": "Jastrzębie-Zdrój" }
   ],
+  "hasMap": "https://maps.google.com/?cid=425097841740426948",
+  "sameAs": ["https://maps.google.com/?cid=425097841740426948"],
   "knowsAbout": ["remont łazienki", "układanie płytek", "gres wielkoformatowy", "hydroizolacja", "tarasy i balkony"]
 }
 </script>
@@ -164,6 +166,23 @@ input::placeholder,textarea::placeholder{color:#a79c8e}
 .review-card blockquote{font-family:'Cormorant Garamond',Georgia,serif;font-size:1.18rem;line-height:1.5;font-style:italic;margin:0 0 18px;color:#2a251c}
 .review-card cite{display:block;font-style:normal;font-weight:700;margin-top:auto}
 .review-card span{display:block;color:var(--muted);font-size:.88rem;margin-top:3px}
+.google-card{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);margin-top:40px;background:var(--panel);border:1px solid var(--line);border-top:4px solid var(--accent);border-radius:6px;overflow:hidden;box-shadow:0 16px 34px rgba(23,19,13,.08)}
+.google-card-info{padding:32px 30px;display:flex;flex-direction:column;gap:16px}
+.google-badge{display:inline-flex;align-items:center;gap:10px;font-size:.78rem;font-weight:700;text-transform:uppercase;color:var(--accent-dark)}
+.google-badge svg{width:22px;height:22px;flex:0 0 auto}
+.google-card-info h3{font-family:'Cormorant Garamond',Georgia,serif;font-size:2rem;line-height:1.05;margin:0;color:var(--ink)}
+.google-card-category{margin:-8px 0 0;color:var(--muted);font-size:.95rem}
+.google-card-details{list-style:none;margin:0;padding:0;display:grid;gap:10px;font-size:.95rem;line-height:1.45;color:var(--ink-soft)}
+.google-card-details li{display:grid;grid-template-columns:20px 1fr;gap:10px;align-items:start}
+.google-card-details svg{width:20px;height:20px;color:var(--accent);margin-top:1px}
+.google-card-details a{font-weight:700;color:var(--ink)}
+.google-card-details a:hover{color:var(--accent-dark)}
+.google-card-note{margin:0;padding-top:14px;border-top:1px solid var(--line);color:var(--muted);font-size:.92rem;line-height:1.55}
+.google-card-actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:auto}
+.button-outline{border-color:rgba(23,19,13,.28);color:var(--ink);background:#fff}
+.button-outline:hover{border-color:var(--ink);background:var(--ink);color:var(--page)}
+.google-card-map{position:relative;min-height:380px;background:var(--stone)}
+.google-card-map iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
 .certificate-card{text-align:center;padding:24px 18px;background:#fbfaf6;display:flex;flex-direction:column;align-items:center}
 .certificate-mark{width:52px;height:52px;margin:0 auto 14px;border-radius:6px;background:linear-gradient(135deg,var(--accent),var(--sage));display:flex;align-items:center;justify-content:center;color:#fff;font-family:'Cormorant Garamond',Georgia,serif;font-size:1.45rem;font-weight:700}
 .certificate-thumbs{width:100%;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin-top:16px}
@@ -202,6 +221,8 @@ input::placeholder,textarea::placeholder{color:#a79c8e}
   .hero h1{font-size:3.25rem}
   .project-grid,.contact-grid{grid-template-columns:1fr}
   .process-grid,.review-grid,.certificate-grid{grid-template-columns:repeat(2,1fr)}
+  .google-card{grid-template-columns:1fr}
+  .google-card-map{min-height:340px;border-top:1px solid var(--line)}
 }
 @media (max-width:680px){
   .container{width:min(100% - 28px,1120px)}
@@ -232,6 +253,11 @@ input::placeholder,textarea::placeholder{color:#a79c8e}
   .lightbox-caption{font-size:.88rem}
   .process-grid,.review-grid,.certificate-grid{grid-template-columns:1fr}
   .certificate-thumbs{grid-template-columns:repeat(4,minmax(0,1fr))}
+  .google-card{margin-top:30px}
+  .google-card-info{padding:24px 20px;gap:14px}
+  .google-card-info h3{font-size:1.75rem}
+  .google-card-actions .button{flex:1 1 100%}
+  .google-card-map{min-height:300px}
   .contact-link span{font-size:1.18rem}
   .footer-inner{display:grid}
 }
@@ -429,6 +455,35 @@ input::placeholder,textarea::placeholder{color:#a79c8e}
           <article class="review-card"><div class="stars">★★★★★</div><blockquote>„Pan Radosław wyremontował nam łazienkę w 3 tygodnie, dokładnie jak obiecał. Fugi równiutkie, docinki przy listwach perfekcyjne.”</blockquote><cite>Anna i Marek K.</cite><span>Żory, os. Sikorskiego</span></article>
           <article class="review-card"><div class="stars">★★★★★</div><blockquote>„Gres 120×60 położony idealnie w poziomie, zero odchyłek. Widać, że fachowiec z prawdziwego zdarzenia. Polecam każdemu.”</blockquote><cite>Tomasz W.</cite><span>Rybnik</span></article>
           <article class="review-card"><div class="stars">★★★★★</div><blockquote>„Doradził lepszy układ płytek niż planowaliśmy i wyszło pięknie. Po każdym dniu pracy sprzątnięte. Kultura i terminowość.”</blockquote><cite>Katarzyna P.</cite><span>Jastrzębie-Zdrój</span></article>
+        </div>
+
+        <div class="google-card" id="google">
+          <div class="google-card-info">
+            <span class="google-badge">
+              <svg viewBox="0 0 48 48" aria-hidden="true"><path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/><path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/><path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/><path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/></svg>
+              Wizytówka Google
+            </span>
+            <h3>SR Glazurnik</h3>
+            <p class="google-card-category">Usługi remontowo-budowlane · Radosław Saramak</p>
+            <ul class="google-card-details">
+              <li>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg>
+                <span>Obszar działania: Żory, Rybnik, Jastrzębie-Zdrój i okolice</span>
+              </li>
+              <li>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg>
+                <a href="tel:609099502">609 099 502</a>
+              </li>
+            </ul>
+            <p class="google-card-note">Jesteś zadowolony z remontu? Zostaw opinię w Google - to dla mnie najlepsza rekomendacja.</p>
+            <div class="google-card-actions">
+              <a class="button button-primary" href="https://maps.app.goo.gl/bkLvTBqL1CnphJyf9" target="_blank" rel="noopener">Zobacz w Google</a>
+              <a class="button button-outline" href="https://www.google.com/maps/place//data=!4m3!3m2!1s0x809bbba7a12adbe9:0x5e6403c1bb92ec4!12e1" target="_blank" rel="noopener">Wystaw opinię</a>
+            </div>
+          </div>
+          <div class="google-card-map">
+            <iframe src="https://maps.google.com/maps?cid=425097841740426948&amp;hl=pl&amp;output=embed" title="SR Glazurnik w Mapach Google" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
+          </div>
         </div>
       </div>
     </section>
